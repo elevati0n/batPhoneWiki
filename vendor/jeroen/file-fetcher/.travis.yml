@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - hhvm
+  - hhvm-nightly
+
+before_script: composer install
+
+script: phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  - composer require satooshi/php-coveralls:dev-master
+  - php vendor/bin/coveralls -v
+
+notifications:
+  email:
+    recipients:
+      - jeroendedauw@gmail.com
+    on_success: change
+    on_failure: always
