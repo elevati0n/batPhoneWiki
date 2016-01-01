@@ -30,12 +30,13 @@ $wgMetaNamespace = "Bat-Phone";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = "/wiki";
+$wgScriptPath = "";
 $wgScriptExtension = ".php";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
 $wgResourceBasePath = $wgScriptPath;
+$wgDefaultSkin = "darkvector";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
@@ -120,7 +121,8 @@ $wgDiff3 = "/usr/bin/diff3";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
-$wgDefaultSkin = "vector";
+## $wgDefaultSkin = "vector";
+$wgDefaultSkin = 'bootstrapmediawiki';
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -132,7 +134,9 @@ wfLoadSkin( 'Vector' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
-
+	
 $wgRawHtml = true;
 $wgLogo = $wgScriptPath . '/images/batphone_logo.png';
-
+require_once( "$IP/skins/bootstrap-mediawiki/bootstrap-mediawiki.php" );
+$wgNavBarClasses = 'navbar-inverse';
+$wgTOCLocation = 'sidebar';
